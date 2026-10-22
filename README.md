@@ -18,3 +18,22 @@ uvicorn main:app --reload
 ```bash
 python -c "from main import demo; print(demo())"
 ```
+
+## Architecture
+
+![Architecture](docs/architecture.png)
+
+<details>
+<summary>Mermaid source</summary>
+
+```mermaid
+flowchart LR
+    Client[Client] --> API[FastAPI Service]
+    API --> Agent[Agent Module]
+    Agent --> Cache[Result Cache]
+    Agent --> Logic[Operation Logic]
+    Logic --> API
+    API --> Client
+```
+
+</details>
